@@ -40,9 +40,11 @@ async def main():
             # STEP 5: Call a tool with parameters
             # This is like calling a function on the remote server
             # Server receives the tool name and arguments, executes, and returns result
+            city = input("Enter city name: ") or "Lahore"
+            
             result = await session.call_tool(
                 "get_weather",                    # Which tool to call
-                {"city": "Lahore"}                # Parameters to pass
+                {"city": city}                    # Parameters to pass
             )
             print("\nTool result:", result.content[0].text)
 
